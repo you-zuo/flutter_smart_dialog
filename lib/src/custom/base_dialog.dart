@@ -6,8 +6,8 @@ import 'main_dialog.dart';
 /// base dialog：encapsulate common logic
 class BaseDialog {
   BaseDialog({
-    required this.config,
-    required this.overlayEntry,
+    @required this.config,
+    @required this.overlayEntry,
   }) : mainDialog = MainDialog(config: config, overlayEntry: overlayEntry);
 
   ///OverlayEntry instance

@@ -5,9 +5,9 @@ import 'helper/dialog_proxy.dart';
 import 'helper/monitor_pop_route.dart';
 
 class FlutterSmartDialog extends StatefulWidget {
-  FlutterSmartDialog({Key? key, required this.child}) : super(key: key);
+  FlutterSmartDialog({Key key, @required this.child}) : super(key: key);
 
-  final Widget? child;
+  final Widget child;
 
   @override
   _FlutterSmartDialogState createState() => _FlutterSmartDialogState();
@@ -17,10 +17,10 @@ class FlutterSmartDialog extends StatefulWidget {
   static void monitor() => MonitorPopRoute.instance;
 
   ///recommend the way of init
-  static TransitionBuilder init({TransitionBuilder? builder}) {
+  static TransitionBuilder init({TransitionBuilder builder}) {
     monitor();
 
-    return (BuildContext context, Widget? child) {
+    return (BuildContext context, Widget child) {
       return builder == null
           ? FlutterSmartDialog(child: child)
           : builder(context, FlutterSmartDialog(child: child));

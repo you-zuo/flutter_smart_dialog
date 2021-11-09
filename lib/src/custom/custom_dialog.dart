@@ -10,24 +10,24 @@ import 'base_dialog.dart';
 ///main function : custom dialog
 class CustomDialog extends BaseDialog {
   CustomDialog({
-    required Config config,
-    required OverlayEntry overlayEntry,
+    @required Config config,
+    @required OverlayEntry overlayEntry,
   }) : super(config: config, overlayEntry: overlayEntry);
 
   Future<void> show({
-    required Widget widget,
-    required AlignmentGeometry alignment,
-    required bool isPenetrate,
-    required bool isUseAnimation,
-    required Duration animationDuration,
-    required bool isLoading,
-    required Color maskColor,
-    required bool clickBgDismiss,
-    required bool antiShake,
-    required Widget? maskWidget,
-    required String? tag,
-    required bool backDismiss,
-    VoidCallback? onDismiss,
+    @required Widget widget,
+    @required AlignmentGeometry alignment,
+    @required bool isPenetrate,
+    @required bool isUseAnimation,
+    @required Duration animationDuration,
+    @required bool isLoading,
+    @required Color maskColor,
+    @required bool clickBgDismiss,
+    @required bool antiShake,
+    @required Widget maskWidget,
+    @required String tag,
+    @required bool backDismiss,
+    VoidCallback onDismiss,
   }) async {
     var proxy = DialogProxy.instance;
 
@@ -35,7 +35,7 @@ class CustomDialog extends BaseDialog {
     if (antiShake) {
       var now = DateTime.now();
       var isShake = proxy.dialogLastTime != null &&
-          now.difference(proxy.dialogLastTime!) <
+          now.difference(proxy.dialogLastTime) <
               SmartDialog.config.antiShakeTime;
       proxy.dialogLastTime = now;
       if (isShake) return;
@@ -46,7 +46,7 @@ class CustomDialog extends BaseDialog {
     proxy.dialogList.add(dialogInfo);
     if (tag != null) proxy.dialogMap[tag] = dialogInfo;
     // insert the dialog carrier into the page
-    Overlay.of(DialogProxy.context)!.insert(
+    Overlay.of(DialogProxy.context).insert(
       overlayEntry,
       below: proxy.entryLoading,
     );
@@ -68,7 +68,7 @@ class CustomDialog extends BaseDialog {
     );
   }
 
-  static Future<void> dismiss({bool back = false, String? tag}) async {
+  static Future<void> dismiss({bool back = false, String tag}) async {
     var proxy = DialogProxy.instance;
     var length = proxy.dialogList.length;
     if (length == 0) return;

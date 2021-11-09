@@ -58,7 +58,7 @@ class Config {
   /// highly customizable mask, it is invalid if [isPenetrate] is true
   ///
   /// 遮罩Widget，可高度自定义你自己的遮罩背景：[isPenetrate]设置为true，该参数失效
-  Widget? maskWidget;
+  Widget maskWidget;
 
   /// default（true），true（loading will be closed after click background），false（not close）
   ///

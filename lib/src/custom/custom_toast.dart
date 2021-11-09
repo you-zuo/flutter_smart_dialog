@@ -6,24 +6,24 @@ import 'base_dialog.dart';
 
 class CustomToast extends BaseDialog {
   CustomToast({
-    required Config config,
-    required OverlayEntry overlayEntry,
+    @required Config config,
+    @required OverlayEntry overlayEntry,
   }) : super(config: config, overlayEntry: overlayEntry);
 
   List<void Function()> _toastList = [];
 
-  DateTime? _lastTime;
+  DateTime _lastTime;
 
   Future<void> showToast({
-    required Duration time,
-    required bool antiShake,
-    required Widget widget,
+    @required Duration time,
+    @required bool antiShake,
+    @required Widget widget,
   }) async {
     // anti-shake
     if (antiShake) {
       var now = DateTime.now();
       var isShake = _lastTime != null &&
-          now.difference(_lastTime!) < SmartDialog.config.antiShakeTime;
+          now.difference(_lastTime) < SmartDialog.config.antiShakeTime;
       _lastTime = now;
       if (isShake) return;
     }

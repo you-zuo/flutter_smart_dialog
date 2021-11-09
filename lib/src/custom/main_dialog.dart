@@ -7,8 +7,8 @@ import 'package:flutter_smart_dialog/src/widget/smart_dialog_view.dart';
 ///main function : customize dialog
 class MainDialog {
   MainDialog({
-    required this.config,
-    required this.overlayEntry,
+    @required this.config,
+    @required this.overlayEntry,
   }) : _widget = Container();
 
   ///OverlayEntry instance
@@ -17,23 +17,23 @@ class MainDialog {
   ///config info
   final Config config;
 
-  GlobalKey<SmartDialogViewState>? _key;
-  Completer? _completer;
-  VoidCallback? _onDismiss;
+  GlobalKey<SmartDialogViewState> _key;
+  Completer _completer;
+  VoidCallback _onDismiss;
   Widget _widget;
 
   Future<void> show({
-    required Widget widget,
-    required AlignmentGeometry alignment,
-    required bool isPenetrate,
-    required bool isUseAnimation,
-    required Duration animationDuration,
-    required bool isLoading,
-    required Color maskColor,
-    required Widget? maskWidget,
-    required bool clickBgDismiss,
-    required VoidCallback onBgTap,
-    required VoidCallback? onDismiss,
+    @required Widget widget,
+    @required AlignmentGeometry alignment,
+    @required bool isPenetrate,
+    @required bool isUseAnimation,
+    @required Duration animationDuration,
+    @required bool isLoading,
+    @required Color maskColor,
+    @required Widget maskWidget,
+    @required bool clickBgDismiss,
+    @required VoidCallback onBgTap,
+    @required VoidCallback onDismiss,
   }) async {
     _onDismiss = onDismiss;
     //custom dialog
@@ -56,7 +56,7 @@ class MainDialog {
 
     //wait dialog dismiss
     _completer = Completer();
-    return _completer!.future;
+    return _completer.future;
   }
 
   Future<void> dismiss() async {

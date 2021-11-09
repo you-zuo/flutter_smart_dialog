@@ -85,19 +85,19 @@ class SmartDialog {
   /// [backDismiss]：默认（true），true（返回事件将关闭loading，但是不会关闭页面），false（返回事件不会关闭loading，也不会关闭页面），
   /// 你仍然可以使用dismiss方法来关闭loading
   static Future<void> show({
-    required Widget widget,
-    AlignmentGeometry? alignmentTemp,
-    bool? clickBgDismissTemp,
-    bool? isLoadingTemp,
-    bool? isPenetrateTemp,
-    bool? isUseAnimationTemp,
-    Duration? animationDurationTemp,
-    Color? maskColorTemp,
-    Widget? maskWidgetTemp,
-    bool? antiShakeTemp,
-    VoidCallback? onDismiss,
-    String? tag,
-    bool? backDismiss,
+    @required Widget widget,
+    AlignmentGeometry alignmentTemp,
+    bool clickBgDismissTemp,
+    bool isLoadingTemp,
+    bool isPenetrateTemp,
+    bool isUseAnimationTemp,
+    Duration animationDurationTemp,
+    Color maskColorTemp,
+    Widget maskWidgetTemp,
+    bool antiShakeTemp,
+    VoidCallback onDismiss,
+    String tag,
+    bool backDismiss,
   }) {
     return DialogProxy.instance.show(
       widget: widget,
@@ -168,17 +168,17 @@ class SmartDialog {
   /// [backDismiss]：默认（true），true（返回事件将关闭loading，但是不会关闭页面），false（返回事件不会关闭loading，也不会关闭页面），
   /// 你仍然可以使用dismiss方法来关闭loading
   static Future<void> showLoading({
-    String? msg,
-    Color? background,
-    bool? clickBgDismissTemp,
-    bool? isLoadingTemp,
-    bool? isPenetrateTemp,
-    bool? isUseAnimationTemp,
-    Duration? animationDurationTemp,
-    Color? maskColorTemp,
-    Widget? maskWidgetTemp,
-    Widget? widget,
-    bool? backDismiss,
+    String msg,
+    Color background,
+    bool clickBgDismissTemp,
+    bool isLoadingTemp,
+    bool isPenetrateTemp,
+    bool isUseAnimationTemp,
+    Duration animationDurationTemp,
+    Color maskColorTemp,
+    Widget maskWidgetTemp,
+    Widget widget,
+    bool backDismiss,
   }) {
     return DialogProxy.instance.showLoading(
       msg: msg ?? 'loading...',
@@ -218,10 +218,10 @@ class SmartDialog {
   /// [widget]：可高度定制化toast
   static Future<void> showToast(
     String msg, {
-    AlignmentGeometry? alignment,
-    Duration? time,
-    bool? antiShakeTemp,
-    Widget? widget,
+    AlignmentGeometry alignment,
+    Duration time,
+    bool antiShakeTemp,
+    Widget widget,
   }) async {
     DialogProxy.instance.showToast(
       msg,
@@ -255,8 +255,8 @@ class SmartDialog {
   ///
   /// [tag]：如果你想关闭指定的dialog，你可以给它设置一个tag
   static Future<void> dismiss({
-    SmartStatus? status,
-    String? tag,
+    SmartStatus status,
+    String tag,
     @deprecated int closeType = 0,
   }) async {
     var instance = DialogProxy.instance;

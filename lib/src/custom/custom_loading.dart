@@ -8,20 +8,20 @@ import 'base_dialog.dart';
 
 class CustomLoading extends BaseDialog {
   CustomLoading({
-    required Config config,
-    required OverlayEntry overlayEntry,
+    @required Config config,
+    @required OverlayEntry overlayEntry,
   }) : super(config: config, overlayEntry: overlayEntry);
 
   Future<void> showLoading({
-    required Widget widget,
-    required bool clickBgDismiss,
-    required bool isLoading,
-    required bool isPenetrate,
-    required bool isUseAnimation,
-    required Duration animationDuration,
-    required Color maskColor,
-    required Widget? maskWidget,
-    required bool backDismiss,
+    @required Widget widget,
+    @required bool clickBgDismiss,
+    @required bool isLoading,
+    @required bool isPenetrate,
+    @required bool isUseAnimation,
+    @required Duration animationDuration,
+    @required Color maskColor,
+    @required Widget maskWidget,
+    @required bool backDismiss,
   }) async {
     DialogProxy.instance.loadingBackDismiss = backDismiss;
     config.isExist = true;

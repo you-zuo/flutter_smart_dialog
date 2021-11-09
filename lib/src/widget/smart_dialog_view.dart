@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 
 class SmartDialogView extends StatefulWidget {
   SmartDialogView({
-    Key? key,
-    required this.child,
-    required this.onBgTap,
-    required this.alignment,
-    required this.isPenetrate,
-    required this.animationDuration,
-    required this.isUseAnimation,
-    required this.isLoading,
-    required this.maskColor,
-    required this.clickBgDismiss,
+    Key key,
+    @required this.child,
+    @required this.onBgTap,
+    @required this.alignment,
+    @required this.isPenetrate,
+    @required this.animationDuration,
+    @required this.isUseAnimation,
+    @required this.isLoading,
+    @required this.maskColor,
+    @required this.clickBgDismiss,
     this.maskWidget,
   }) : super(key: key);
 
@@ -43,7 +43,7 @@ class SmartDialogView extends StatefulWidget {
   final Color maskColor;
 
   /// 自定义遮罩Widget
-  final Widget? maskWidget;
+  final Widget maskWidget;
 
   /// 点击遮罩，是否关闭dialog---true：点击遮罩关闭dialog，false：不关闭
   final bool clickBgDismiss;
@@ -54,12 +54,12 @@ class SmartDialogView extends StatefulWidget {
 
 class SmartDialogViewState extends State<SmartDialogView>
     with SingleTickerProviderStateMixin {
-  late double _opacity;
+   double _opacity;
 
-  late AnimationController _controller;
+   AnimationController _controller;
 
   /// 处理下内容widget动画放心
-  Offset? _offset;
+  Offset _offset;
 
   @override
   void initState() {
@@ -99,8 +99,8 @@ class SmartDialogViewState extends State<SmartDialogView>
   }
 
   AnimatedOpacity _buildBgAnimation({
-    required void Function()? onPointerUp,
-    required Widget? child,
+    @required void Function() onPointerUp,
+    @required Widget child,
   }) {
     return AnimatedOpacity(
       duration: widget.animationDuration,
@@ -108,7 +108,7 @@ class SmartDialogViewState extends State<SmartDialogView>
       opacity: _opacity,
       child: Listener(
         behavior: HitTestBehavior.translucent,
-        onPointerUp: (event) => onPointerUp?.call(),
+        onPointerUp: (event) => onPointerUp.call(),
         child: child,
       ),
     );
@@ -143,7 +143,7 @@ class SmartDialogViewState extends State<SmartDialogView>
 
   ///处理下内容widget动画方向
   void _dealContentAnimate() {
-    AlignmentGeometry? alignment = widget.alignment;
+    AlignmentGeometry alignment = widget.alignment;
     _offset = Offset(0, 0);
 
     if (alignment == Alignment.bottomCenter ||

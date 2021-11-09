@@ -7,12 +7,12 @@ typedef PopTestFunc = bool Function();
 class MonitorPopRoute with WidgetsBindingObserver {
   factory MonitorPopRoute() => instance;
 
-  static MonitorPopRoute? _instance;
+  static MonitorPopRoute _instance;
 
   static MonitorPopRoute get instance => _instance ??= MonitorPopRoute._();
 
   MonitorPopRoute._() {
-    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override

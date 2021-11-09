@@ -10,23 +10,23 @@ import '../smart_dialog.dart';
 import 'config.dart';
 
 class DialogProxy {
-  late Config config;
-  late OverlayEntry entryToast;
-  late OverlayEntry entryLoading;
-  late Map<String, DialogInfo> dialogMap;
-  late List<DialogInfo> dialogList;
-  late CustomToast _toast;
-  late CustomLoading _loading;
+   Config config;
+   OverlayEntry entryToast;
+   OverlayEntry entryLoading;
+   Map<String, DialogInfo> dialogMap;
+   List<DialogInfo> dialogList;
+   CustomToast _toast;
+   CustomLoading _loading;
 
   bool loadingBackDismiss = true;
-  DateTime? dialogLastTime;
+  DateTime dialogLastTime;
 
   factory DialogProxy() => instance;
-  static DialogProxy? _instance;
+  static DialogProxy _instance;
 
   static DialogProxy get instance => _instance ??= DialogProxy._internal();
 
-  static late BuildContext context;
+  static  BuildContext context;
 
   DialogProxy._internal() {
     config = Config();
@@ -51,23 +51,23 @@ class DialogProxy {
   }
 
   Future<void> show({
-    required Widget widget,
-    required AlignmentGeometry alignment,
-    required bool isPenetrate,
-    required bool isUseAnimation,
-    required Duration animationDuration,
-    required bool isLoading,
-    required Color maskColor,
-    required bool clickBgDismiss,
-    required Widget? maskWidget,
-    required bool antiShake,
-    required VoidCallback? onDismiss,
-    required String? tag,
-    required bool backDismiss,
+    @required Widget widget,
+    @required AlignmentGeometry alignment,
+    @required bool isPenetrate,
+    @required bool isUseAnimation,
+    @required Duration animationDuration,
+    @required bool isLoading,
+    @required Color maskColor,
+    @required bool clickBgDismiss,
+    @required Widget maskWidget,
+    @required bool antiShake,
+    @required VoidCallback onDismiss,
+    @required String tag,
+    @required bool backDismiss,
   }) {
-    CustomDialog? dialog;
+    CustomDialog dialog;
     var entry = OverlayEntry(
-      builder: (BuildContext context) => dialog!.getWidget(),
+      builder: (BuildContext context) => dialog.getWidget(),
     );
     dialog = CustomDialog(config: config, overlayEntry: entry);
     return dialog.show(
@@ -88,17 +88,17 @@ class DialogProxy {
   }
 
   Future<void> showLoading({
-    required String msg,
-    required Color background,
-    required bool clickBgDismiss,
-    required bool isLoading,
-    required bool isPenetrate,
-    required bool isUseAnimation,
-    required Duration animationDuration,
-    required Color maskColor,
-    required Widget? maskWidget,
-    required Widget? widget,
-    required bool backDismiss,
+    @required String msg,
+    @required Color background,
+    @required bool clickBgDismiss,
+    @required bool isLoading,
+    @required bool isPenetrate,
+    @required bool isUseAnimation,
+    @required Duration animationDuration,
+    @required Color maskColor,
+    @required Widget maskWidget,
+    @required Widget widget,
+    @required bool backDismiss,
   }) {
     return _loading.showLoading(
       widget: widget ?? LoadingWidget(msg: msg, background: background),
@@ -115,10 +115,10 @@ class DialogProxy {
 
   Future<void> showToast(
     String msg, {
-    required Duration time,
-    required AlignmentGeometry alignment,
-    required bool antiShake,
-    required Widget? widget,
+    @required Duration time,
+    @required AlignmentGeometry alignment,
+    @required bool antiShake,
+    @required Widget widget,
   }) async {
     _toast.showToast(
       time: time,
@@ -130,8 +130,8 @@ class DialogProxy {
   }
 
   Future<void> dismiss({
-    SmartStatus? status,
-    String? tag,
+    SmartStatus status,
+    String tag,
     bool back = false,
   }) async {
     if (status == null) {
@@ -149,7 +149,7 @@ class DialogProxy {
     }
   }
 
-  Future<void> _closeAllDialog({SmartStatus? status}) async {
+  Future<void> _closeAllDialog({SmartStatus status}) async {
     var length = dialogList.length;
     for (var i = 0; i < length; i++) {
       var item = dialogList[dialogList.length - 1];
