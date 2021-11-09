@@ -10,13 +10,13 @@ import '../smart_dialog.dart';
 import 'config.dart';
 
 class DialogProxy {
-   Config config;
-   OverlayEntry entryToast;
-   OverlayEntry entryLoading;
-   Map<String, DialogInfo> dialogMap;
-   List<DialogInfo> dialogList;
-   CustomToast _toast;
-   CustomLoading _loading;
+  Config config;
+  OverlayEntry entryToast;
+  OverlayEntry entryLoading;
+  Map<String, DialogInfo> dialogMap;
+  List<DialogInfo> dialogList;
+  CustomToast _toast;
+  CustomLoading _loading;
 
   bool loadingBackDismiss = true;
   DateTime dialogLastTime;
@@ -26,7 +26,7 @@ class DialogProxy {
 
   static DialogProxy get instance => _instance ??= DialogProxy._internal();
 
-  static  BuildContext context;
+  static BuildContext context;
 
   DialogProxy._internal() {
     config = Config();
@@ -101,7 +101,9 @@ class DialogProxy {
     @required bool backDismiss,
   }) {
     return _loading.showLoading(
-      widget: widget ?? LoadingWidget(msg: msg, background: background),
+      widget: widget ??
+          (config.loadWidget ??
+              LoadingWidget(msg: msg, background: background)),
       clickBgDismiss: clickBgDismiss,
       isLoading: isLoading,
       maskColor: maskColor,

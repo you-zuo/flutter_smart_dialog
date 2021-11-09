@@ -60,6 +60,9 @@ class Config {
   /// 遮罩Widget，可高度自定义你自己的遮罩背景：[isPenetrate]设置为true，该参数失效
   Widget maskWidget;
 
+  //等待widget
+  Widget loadWidget;
+
   /// default（true），true（loading will be closed after click background），false（not close）
   ///
   /// 点击遮罩，是否关闭dialog（默认：true）：true（点击遮罩关闭dialog），false（不关闭）
