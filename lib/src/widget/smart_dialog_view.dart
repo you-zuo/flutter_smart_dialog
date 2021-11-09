@@ -54,9 +54,9 @@ class SmartDialogView extends StatefulWidget {
 
 class SmartDialogViewState extends State<SmartDialogView>
     with SingleTickerProviderStateMixin {
-   double _opacity;
+  double _opacity;
 
-   AnimationController _controller;
+  AnimationController _controller;
 
   /// 处理下内容widget动画放心
   Offset _offset;
@@ -108,7 +108,11 @@ class SmartDialogViewState extends State<SmartDialogView>
       opacity: _opacity,
       child: Listener(
         behavior: HitTestBehavior.translucent,
-        onPointerUp: (event) => onPointerUp.call(),
+        onPointerUp: (event) {
+          if (onPointerUp != null) {
+            onPointerUp.call();
+          }
+        },
         child: child,
       ),
     );
