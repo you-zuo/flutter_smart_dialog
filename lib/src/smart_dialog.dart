@@ -280,3 +280,10 @@ class SmartDialog {
     await instance.dismiss(status: status, tag: tag);
   }
 }
+
+///弹窗是否弹出
+  static bool isShowIng(String tag) {
+    var instance = DialogProxy.instance;
+    return instance.dialogMap.keys.contains(tag);
+  }
+
