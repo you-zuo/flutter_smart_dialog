@@ -287,7 +287,7 @@ class SmartDialog {
   static void removeTag(String tag) {
     var instance = DialogProxy.instance;
     if(instance.dialogMap.keys.contains(tag)){
-       instance.dialogMap.keys.toList.remove(tag);
+       instance.dialogMap.keys.toList().remove(tag);
     }
     
   }
